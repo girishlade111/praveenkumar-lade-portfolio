@@ -130,10 +130,10 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-md transition-colors ${
+                  className={`px-4 py-2 rounded-md transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-secondary text-secondary-foreground'
-                      : 'hover:bg-muted'
+                      ? 'bg-secondary text-secondary-foreground shadow-md'
+                      : 'hover:bg-muted hover:shadow-sm hover:scale-105'
                   }`}
                 >
                   {item.label}
@@ -142,7 +142,7 @@ export default function Home() {
               <Button
                 variant="default"
                 size="sm"
-                className="ml-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                className="ml-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 hover:shadow-lg hover:scale-105 transition-all duration-300"
                 asChild
               >
                 <a href="https://ladestack.in" target="_blank" rel="noopener noreferrer">
@@ -154,7 +154,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setDarkMode(!darkMode)}
-                className="ml-2"
+                className="ml-2 hover:bg-muted hover:shadow-md hover:scale-110 transition-all duration-300"
               >
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
@@ -166,6 +166,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setDarkMode(!darkMode)}
+                className="hover:bg-muted hover:shadow-md hover:scale-110 transition-all duration-300"
               >
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
@@ -173,6 +174,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="hover:bg-muted hover:shadow-md hover:scale-110 transition-all duration-300"
               >
                 {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -235,7 +237,7 @@ export default function Home() {
               <Button
                 size="lg"
                 onClick={() => scrollToSection('about')}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Explore My Journey
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -244,6 +246,7 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('contact')}
+                className="hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Get In Touch
               </Button>
@@ -275,13 +278,13 @@ export default function Home() {
                   I believe in the power of collaborative leadership and the importance of creating environments where talent thrives and innovation flourishes.
                 </p>
               </div>
-              <div className="relative">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-secondary to-primary p-1">
+              <div className="relative group">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-secondary to-primary p-1 hover:shadow-2xl transition-all duration-500 hover:scale-105">
                   <div className="w-full h-full rounded-xl bg-card flex items-center justify-center">
                     <img
                       src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop"
                       alt="Professional Portrait"
-                      className="w-full h-full object-cover rounded-xl"
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </div>
@@ -311,7 +314,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-secondary">
+                  <Card className="p-6 hover:shadow-2xl transition-all duration-300 border-l-4 border-l-secondary hover:scale-[1.02] hover:-translate-y-1">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
                         <h3 className="text-2xl font-bold mb-1">{role.title}</h3>
@@ -349,10 +352,10 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -8 }}
                   >
-                    <Card className="p-6 h-full hover:shadow-xl transition-all">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary to-primary flex items-center justify-center mb-4">
+                    <Card className="p-6 h-full hover:shadow-2xl transition-all duration-300 hover:border-secondary/50">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary to-primary flex items-center justify-center mb-4 hover:scale-110 transition-transform duration-300">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <Badge className="mb-3 bg-secondary/20 text-secondary-foreground">{achievement.year}</Badge>
@@ -379,13 +382,13 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-center">Vision & Philosophy</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto mb-12" />
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-8 bg-gradient-to-br from-secondary/10 to-transparent border-2 border-secondary/20">
+              <Card className="p-8 bg-gradient-to-br from-secondary/10 to-transparent border-2 border-secondary/20 hover:shadow-2xl hover:border-secondary/50 transition-all duration-300 hover:scale-[1.02]">
                 <h3 className="text-2xl font-bold mb-4 text-secondary">Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   To create a future where innovation, sustainability, and human potential converge to build organizations that not only succeed but also contribute meaningfully to society. I envision a world where leadership is defined by empathy, strategic foresight, and the courage to challenge the status quo.
                 </p>
               </Card>
-              <Card className="p-8 bg-gradient-to-br from-primary/10 to-transparent border-2 border-primary/20">
+              <Card className="p-8 bg-gradient-to-br from-primary/10 to-transparent border-2 border-primary/20 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
                 <h3 className="text-2xl font-bold mb-4 text-primary">Philosophy</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   I believe that true leadership is about empowering others to discover their own greatness. Success is measured not just by achievements, but by the positive impact we create and the legacy we leave behind. Continuous learning, adaptability, and integrity form the foundation of my approach to both professional and personal growth.
@@ -407,27 +410,27 @@ export default function Home() {
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-center">Get In Touch</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto mb-12" />
-            <Card className="p-8">
+            <Card className="p-8 hover:shadow-2xl transition-shadow duration-300">
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">Name</label>
-                    <Input id="name" placeholder="Your name" />
+                    <Input id="name" placeholder="Your name" className="focus:shadow-md transition-shadow duration-300" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="your.email@example.com" />
+                    <Input id="email" type="email" placeholder="your.email@example.com" className="focus:shadow-md transition-shadow duration-300" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                  <Input id="subject" placeholder="What's this about?" />
+                  <Input id="subject" placeholder="What's this about?" className="focus:shadow-md transition-shadow duration-300" />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea id="message" rows={6} placeholder="Your message..." />
+                  <Textarea id="message" rows={6} placeholder="Your message..." className="focus:shadow-md transition-shadow duration-300" />
                 </div>
-                <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground" size="lg">
+                <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground hover:shadow-xl hover:scale-[1.02] transition-all duration-300" size="lg">
                   Send Message
                   <Send className="ml-2 h-5 w-5" />
                 </Button>
@@ -435,16 +438,16 @@ export default function Home() {
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="text-center text-muted-foreground mb-4">Connect with me</p>
                 <div className="flex justify-center space-x-4">
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon" className="hover:shadow-lg hover:scale-110 hover:border-secondary transition-all duration-300">
                     <Mail className="h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon" className="hover:shadow-lg hover:scale-110 hover:border-secondary transition-all duration-300">
                     <Linkedin className="h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon" className="hover:shadow-lg hover:scale-110 hover:border-secondary transition-all duration-300">
                     <Twitter className="h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon" className="hover:shadow-lg hover:scale-110 hover:border-secondary transition-all duration-300">
                     <Github className="h-5 w-5" />
                   </Button>
                 </div>
@@ -464,7 +467,7 @@ export default function Home() {
                 href="https://ladestack.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-semibold text-secondary hover:underline transition-all"
+                className="inline-flex items-center gap-1 font-semibold text-secondary hover:underline hover:shadow-md transition-all duration-300 hover:scale-105"
               >
                 ladestack.in
                 <ExternalLink className="h-4 w-4" />
